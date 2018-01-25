@@ -29,8 +29,7 @@ public class WinesMaximumProfit {
     }
 
     private int calculateMaximumProfit(int[] wines, int year, int starting, int ending) {
-        int maximumProfit = -1;
-
+        int maximumProfit;
         if( starting > ending ) {
             maximumProfit = 0;
         } else {
@@ -39,7 +38,6 @@ public class WinesMaximumProfit {
                     ( calculateMaximumProfit( wines, year+1, starting, ending-1 ) + wines[ending] * year )
             );
         }
-
         return  maximumProfit;
     }
 
