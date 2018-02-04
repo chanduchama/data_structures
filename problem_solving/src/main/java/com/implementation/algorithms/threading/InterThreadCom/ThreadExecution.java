@@ -1,5 +1,8 @@
 package com.implementation.algorithms.threading.InterThreadCom;
 
+// TODO: 04/02/18
+// // https://www.geeksforgeeks.org/inter-thread-communication-java/
+
 public class ThreadExecution {
 
     public static void main(String[] args) throws InterruptedException {

@@ -1,5 +1,8 @@
 package com.implementation.algorithms.threading.synchronization;
 
+// TODO: 04/02/18
+// https://www.geeksforgeeks.org/synchronized-in-java/
+
 public class ThreadExecution {
 
     public static void main(String[] args) {
