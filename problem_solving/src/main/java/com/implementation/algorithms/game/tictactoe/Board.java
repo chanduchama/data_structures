@@ -24,17 +24,12 @@ public class Board {
         boolean inputReceived = false;
 
         while (!inputReceived) {
-            String playerName;
-            if( currentPlayer == player1 ) {
-                playerName = "Player 1";
-            } else {
-                playerName = "Player 2";
-            }
-            System.out.println(playerName +" ,please enter the row value");
-            int rowValue = scanner.nextInt();
+            String playerName = getCurrentPlayerName();
+            System.out.println(playerName +" ,please enter the row and column value eg: 1,2");
+            String value = scanner.nextLine();
 
-            System.out.println(playerName +" ,please enter the row value");
-            int colValue = scanner.nextInt();
+            int rowValue = Integer.parseInt(value.split(",")[0]);
+            int colValue = Integer.parseInt(value.split(",")[1]);
 
             if ( ( rowValue > 0 && rowValue < 4 ) && (colValue > 0 && colValue < 4 ) ) {
                 if (cells[rowValue-1][colValue-1].getCellValue() != "-") {
@@ -51,9 +46,85 @@ public class Board {
     }
 
     public boolean checkWinningCondition() {
+        boolean winningCondition = false;
+
+        if( checkRowWinningCondition() || checkColumnWinningCondition() || checkDiagonalWinningCondition() ) {
+            winningCondition = true;
+        }
+
+        return winningCondition;
+    }
+
+    private boolean checkDiagonalWinningCondition() {
+        boolean status = false;
+
+        if( checkWinningCondition(cells[0][0], cells[1][1], cells[2][2]) ) {
+            status = true;
+        }
+
+        return status;
+    }
+
+    private boolean checkColumnWinningCondition() {
+        boolean status = false;
+
+        for (int i = 0; i < 3; i++) {
+            if( checkWinningCondition(cells[0][i], cells[1][i], cells[2][i]) ) {
+                status = true;
+                break;
+            }
+        }
+
+        return status;
+    }
+
+    private boolean checkRowWinningCondition() {
+        boolean status = false;
+
+        for (int i = 0; i < 3; i++) {
+            if( checkWinningCondition(cells[i][0], cells[i][1], cells[i][2]) ) {
+                status = true;
+                break;
+            }
+        }
+
+        return status;
+    }
+
+    private boolean checkWinningCondition(Cell cell, Cell cell1, Cell cell2) {
+        boolean status = false;
+        if ( (cell.getCellValue() != "-") && ( cell.getCellValue() == cell1.getCellValue() ) && ( cell1.getCellValue() == cell2.getCellValue()) ) {
+            status = true;
+        }
+        return status;
     }
 
     public boolean isBoardFull() {
+        boolean status = true;
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (cells[i][j].getCellValue() == "-") {
+                    status = false;
+                    break;
+                }
+            }
+            if (!status) {
+                break;
+            }
+        }
+
+        return status;
+    }
+
+    public String getCurrentPlayerName() {
+        String playerName;
+        if( currentPlayer == player1 ) {
+            playerName = "Player 1";
+        } else {
+            playerName = "Player 2";
+        }
+        return playerName;
     }
 
     public void changePlayer() {
@@ -85,14 +156,22 @@ public class Board {
 
         boolean endGame = false;
 
+        board.printBoard();
+
         while (!endGame) {
             board.takeInput();
             board.printBoard();
 
             if( board.checkWinningCondition() == true ){
                 endGame = true;
+
+                String playerName = board.getCurrentPlayerName();
+
+                System.out.println("Cool, found winner");
+                System.out.println(playerName+" is the winner");
             } else if( board.isBoardFull() == true ) {
                 endGame = true;
+                System.out.println("Draw game please try again");
             }
 
             board.changePlayer();
