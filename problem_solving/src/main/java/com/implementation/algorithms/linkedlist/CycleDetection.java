@@ -1,7 +1,7 @@
 package com.implementation.algorithms.linkedlist;
 
 /*
-    Todo - Floyd's cycle detection algorithm
+    Todo - Floyd's cycle detection algorithms
 */
 
 public class CycleDetection {
