@@ -45,7 +45,7 @@ public class Board {
 
     }
 
-    public boolean checkWinningCondition() {
+    public boolean checkCellValues() {
         boolean winningCondition = false;
 
         if( checkRowWinningCondition() || checkColumnWinningCondition() || checkDiagonalWinningCondition() ) {
@@ -58,7 +58,7 @@ public class Board {
     private boolean checkDiagonalWinningCondition() {
         boolean status = false;
 
-        if( checkWinningCondition(cells[0][0], cells[1][1], cells[2][2]) ) {
+        if( checkCellValues(cells[0][0], cells[1][1], cells[2][2]) ) {
             status = true;
         }
 
@@ -69,7 +69,7 @@ public class Board {
         boolean status = false;
 
         for (int i = 0; i < 3; i++) {
-            if( checkWinningCondition(cells[0][i], cells[1][i], cells[2][i]) ) {
+            if( checkCellValues(cells[0][i], cells[1][i], cells[2][i]) ) {
                 status = true;
                 break;
             }
@@ -82,7 +82,7 @@ public class Board {
         boolean status = false;
 
         for (int i = 0; i < 3; i++) {
-            if( checkWinningCondition(cells[i][0], cells[i][1], cells[i][2]) ) {
+            if( checkCellValues(cells[i][0], cells[i][1], cells[i][2]) ) {
                 status = true;
                 break;
             }
@@ -91,7 +91,7 @@ public class Board {
         return status;
     }
 
-    private boolean checkWinningCondition(Cell cell, Cell cell1, Cell cell2) {
+    private boolean checkCellValues(Cell cell, Cell cell1, Cell cell2) {
         boolean status = false;
         if ( (cell.getCellValue() != "-") && ( cell.getCellValue() == cell1.getCellValue() ) && ( cell1.getCellValue() == cell2.getCellValue()) ) {
             status = true;
@@ -162,7 +162,7 @@ public class Board {
             board.takeInput();
             board.printBoard();
 
-            if( board.checkWinningCondition() == true ){
+            if( board.checkCellValues() == true ){
                 endGame = true;
 
                 String playerName = board.getCurrentPlayerName();
