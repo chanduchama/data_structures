@@ -58,7 +58,7 @@ public class Board {
     private boolean checkDiagonalWinningCondition() {
         boolean status = false;
 
-        if( checkCellValues(cells[0][0], cells[1][1], cells[2][2]) ) {
+        if( ( checkCellValues(cells[0][0], cells[1][1], cells[2][2]) ) || ( checkCellValues(cells[0][2], cells[1][1], cells[2][0]) ) ) {
             status = true;
         }
 
