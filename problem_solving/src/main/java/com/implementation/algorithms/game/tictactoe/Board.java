@@ -45,7 +45,7 @@ public class Board {
 
     }
 
-    public boolean checkCellValues() {
+    public boolean checkWinningConditions() {
         boolean winningCondition = false;
 
         if( checkRowWinningCondition() || checkColumnWinningCondition() || checkDiagonalWinningCondition() ) {
@@ -162,7 +162,7 @@ public class Board {
             board.takeInput();
             board.printBoard();
 
-            if( board.checkCellValues() == true ){
+            if( board.checkWinningConditions() == true ){
                 endGame = true;
 
                 String playerName = board.getCurrentPlayerName();
