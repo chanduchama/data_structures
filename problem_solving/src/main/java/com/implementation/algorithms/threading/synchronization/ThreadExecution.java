@@ -9,7 +9,7 @@ public class ThreadExecution {
 
         Message message = new Message();
 
-        MessageSender messageSender1 = new MessageSender( message, "Server 1");
+        MessageSender messageSender1 = new MessageSender( message, "Server one");
         MessageSender messageSender2 = new MessageSender( message, "Server 2");
 
         messageSender1.start();

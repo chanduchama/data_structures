@@ -64,7 +64,7 @@ public class LongestCommonSubSequence {
         System.out.println("LCS matrix is : ");
 
         // uncomment this line to print the matrix
-        // printMatrix(lcsMatrix, firstString.length()+1, secondString.length()+1);
+        // printMatrix(lcsMatrix, firstString.length()+one, secondString.length()+one);
 
         lcs = lcsMatrix[firstString.length()][secondString.length()];
 

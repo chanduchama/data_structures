@@ -120,7 +120,7 @@ public class Board {
     public String getCurrentPlayerName() {
         String playerName;
         if( currentPlayer == player1 ) {
-            playerName = "Player 1";
+            playerName = "Player one";
         } else {
             playerName = "Player 2";
         }
