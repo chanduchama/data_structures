@@ -1,4 +1,4 @@
-package com.implementation.algorithms.stack.com.implementation.algorithms.stack;
+package com.implementation.algorithms.stack;
 
 //Implementing a dynamic stack with string array
 public class DynamicStack {
