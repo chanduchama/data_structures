@@ -3,7 +3,7 @@ package com.implementation.algorithms.sorting;
 /**
  * Merge sort algorithm
  * ToDo
- * Need to optimize the algorithm to reduce the space
+ * Need to optimize the algorithm to reduce the space consumption
  */
 public class MergeSort {
 
