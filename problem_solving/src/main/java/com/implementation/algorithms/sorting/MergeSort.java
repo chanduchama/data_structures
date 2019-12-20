@@ -7,6 +7,18 @@ package com.implementation.algorithms.sorting;
  */
 public class MergeSort {
 
+    /**
+     * Algorithm
+     * mergeSort(int[] numbers, int left, int right) {
+     *     if(left<right) {
+     *          middle = (left+right)/2
+     *          mergeSort(numbers, left, middle)
+     *          mergeSort(numbers, middle+1, right)
+     *          merge(numbers, left, middle, right)
+     *     }
+     * }
+     */
+
     public static void main(String[] args) {
         Integer[] numbers = {9,3,7,5,6,4,8,2};
         MergeSort mergeSort = new MergeSort();
